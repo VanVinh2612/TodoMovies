@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'component/bottom_navigation_component.dart';
-import 'component/now_playing_body_component.dart';
+import 'component/home_body_component.dart';
 
-class InTheaterScreen extends StatelessWidget {
-  const InTheaterScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

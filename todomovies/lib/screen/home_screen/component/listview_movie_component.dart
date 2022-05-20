@@ -5,23 +5,21 @@ import 'package:todomovies/network/network_request.dart';
 import '../../detail_movie_screen/detail_movie_screen.dart';
 
 const url = "https://image.tmdb.org/t/p/w500";
-const urlNowPlaying =
-    "https://api.themoviedb.org/3/movie/now_playing?api_key=d79d9f8467a0e6d7b24624c522cb2ab3&page=1";
 
-class InTheaterTab extends StatefulWidget {
-  const InTheaterTab({Key? key}) : super(key: key);
-
+class ShowMoviesTab extends StatefulWidget {
+  const ShowMoviesTab({Key? key, required this.category}) : super(key: key);
+  final String category;
   @override
-  State<InTheaterTab> createState() => _InTheaterTabState();
+  State<ShowMoviesTab> createState() => _ShowMoviesTabState();
 }
 
-class _InTheaterTabState extends State<InTheaterTab> {
+class _ShowMoviesTabState extends State<ShowMoviesTab> {
   Future<NowPlaying>? futureNowPlaying;
-
   @override
   void initState() {
     super.initState();
-    futureNowPlaying = NetWorkRequest(urlNowPlaying).fetchResults();
+    futureNowPlaying = NetWorkRequest().fetchResults(
+        "https://api.themoviedb.org/3/movie/${widget.category}?api_key=d79d9f8467a0e6d7b24624c522cb2ab3&page=1");
   }
 
   @override
@@ -57,8 +55,7 @@ class _InTheaterTabState extends State<InTheaterTab> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => DetailMovieScreen(
-                                id: snapshot.data?.results?[index].id
-                                ),
+                                id: snapshot.data?.results?[index].id),
                           ));
                     },
                     child: Image.network(

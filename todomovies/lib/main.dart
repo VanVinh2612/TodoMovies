@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todomovies/screen/detail_movie_screen/detail_movie_screen.dart';
-import 'package:todomovies/screen/in_theater_screen/in_theater_screen.dart';
+import 'package:todomovies/screen/home_screen/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const DetailMovieScreen(id: 2),
+      home: const HomeScreen(),
     );
   }
 }

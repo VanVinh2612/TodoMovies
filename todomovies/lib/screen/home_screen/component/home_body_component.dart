@@ -43,11 +43,9 @@ class _NowPlayingBodyState extends State<NowPlayingBody>
           children: [
             tabBarViewWidget(),
             Positioned(
-              // alignment: Alignment.topCenter,
               top: 0,
               left: 0,
               right: 0,
-              // width: MediaQuery.of(context).size.height,
               child: tabBarWidget(context),
             ),
           ],
@@ -71,13 +69,23 @@ class _NowPlayingBodyState extends State<NowPlayingBody>
               } else {
                 _scrollOffset = 0;
               }
-              // _scrollOffset = notification.metrics.pixels;
               setState(() {});
               return true;
             },
-            child: const InTheaterTab(),
+            child: const ShowMoviesTab(category: 'now_playing'),
           ),
-          const Center(child: Text('add')),
+          NotificationListener<ScrollNotification>(
+            onNotification: (notification) {
+              if (notification.metrics.pixels > 0) {
+                _scrollOffset = 200;
+              } else {
+                _scrollOffset = 0;
+              }
+              setState(() {});
+              return true;
+            },
+            child: const ShowMoviesTab(category: 'upcoming'),
+          ),
         ],
       ),
     );

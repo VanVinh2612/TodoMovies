@@ -37,6 +37,8 @@ dependencies:
   flutter_svg: ^1.0.3
   html: ^0.15.0
   http: ^0.13.4
+  youtube_player_flutter: ^8.0.0
+  device_preview: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +50,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  lint: ^1.8.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
